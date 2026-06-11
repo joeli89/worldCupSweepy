@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FileDown, Share2, Shuffle, Trophy } from "lucide-react";
+import { FileDown, Shuffle, Trophy } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   CountryDrawReel,
@@ -25,11 +25,6 @@ import {
   pickRandomTeam,
   worldCupGroups,
 } from "@/lib/world-cup-teams";
-import {
-  buildShareMessage,
-  buildShareUrl,
-  getDisplayCode,
-} from "@/lib/sweepstake-share";
 import { captureEvent } from "@/lib/posthog";
 import { cn } from "@/lib/utils";
 
@@ -62,11 +57,15 @@ export function AdvanceDrawContent() {
   const spinning = spinState !== null;
 
   const activePlayer = players.find((p) => p.id === activePlayerId);
-  const activePlayerLabel = useMemo(() => {
-    if (!activePlayer) return "";
-    const index = players.findIndex((p) => p.id === activePlayer.id);
-    return activePlayer.name.trim() || `Player ${index + 1}`;
+  const activePlayerIndex = useMemo(() => {
+    if (!activePlayer) return -1;
+    return players.findIndex((p) => p.id === activePlayer.id);
   }, [activePlayer, players]);
+
+  const activePlayerLabel = useMemo(() => {
+    if (!activePlayer || activePlayerIndex < 0) return "";
+    return activePlayer.name.trim() || `Player ${activePlayerIndex + 1}`;
+  }, [activePlayer, activePlayerIndex]);
 
   const assignedTeamIds = useMemo(
     () => getAllAssignedTeamIds(players),
@@ -178,11 +177,6 @@ export function AdvanceDrawContent() {
     ? spinState?.winner.id ?? null
     : lastWinnerId;
 
-  const [shareCopied, setShareCopied] = useState<"link" | "message" | null>(
-    null
-  );
-  const shareCode = getDisplayCode();
-
   const canExportPdf = hasSweepstakeAssignments(players);
 
   const handleSavePdf = async () => {
@@ -191,15 +185,6 @@ export function AdvanceDrawContent() {
       player_count: players.length,
       assigned_team_count: assignedTeamIds.length,
     });
-  };
-
-  const copyShare = async (type: "link" | "message") => {
-    const text =
-      type === "link" ? buildShareUrl(players) : buildShareMessage(players);
-    await navigator.clipboard.writeText(text);
-    captureEvent("sweepstake_shared", { share_type: type });
-    setShareCopied(type);
-    window.setTimeout(() => setShareCopied(null), 2000);
   };
 
   if (!ready) {
@@ -242,10 +227,19 @@ export function AdvanceDrawContent() {
       </div>
 
       <StaticCard className="mb-8 p-6 md:p-10">
-        <p className="mb-6 text-center text-sm text-white/50">
-          Drawing for{" "}
-          <span className="font-semibold text-white">{activePlayerLabel}</span>
-        </p>
+        <div className="mb-8 flex flex-col items-center">
+          <div className="w-full max-w-md rounded-2xl border border-gold/40 bg-gold/10 px-6 py-5 text-center shadow-[0_0_40px_rgba(251,191,36,0.08)]">
+            <p className="brand-eyebrow mb-2 text-gold">Now drawing for</p>
+            <p className="font-display text-4xl uppercase tracking-wide text-white text-glow-gold md:text-5xl">
+              {activePlayerLabel}
+            </p>
+            {players.length > 1 && activePlayerIndex >= 0 && (
+              <p className="mt-2 font-condensed text-xs uppercase tracking-[0.2em] text-white/45">
+                Player {activePlayerIndex + 1} of {players.length}
+              </p>
+            )}
+          </div>
+        </div>
 
         <CountryDrawReel
           teams={allWorldCupTeams}
@@ -263,7 +257,9 @@ export function AdvanceDrawContent() {
             className="btn-primary py-3 text-xs disabled:cursor-not-allowed disabled:opacity-40"
           >
             <Shuffle className="h-4 w-4" />
-            {spinning ? "Drawing…" : "Draw country"}
+            {spinning
+              ? `Drawing for ${activePlayerLabel}…`
+              : `Draw for ${activePlayerLabel}`}
           </button>
 
           {players.length > 1 && (
@@ -283,44 +279,6 @@ export function AdvanceDrawContent() {
           click Draw for everyone again for another round · ~
           {Math.round(REEL_SPIN_MS / 1000)}s per draw
         </p>
-      </StaticCard>
-
-      <StaticCard className="mb-8 p-6 md:p-8">
-        <div className="mb-4 flex items-center gap-2">
-          <Share2 className="h-5 w-5 text-neon-blue" />
-          <h2 className="font-display text-2xl uppercase tracking-wide text-white">
-            Share with others
-          </h2>
-        </div>
-        <p className="mb-4 text-sm text-white/40">
-          Send this code and link so someone else can open the same World Cup Sweepy
-          on their device.
-        </p>
-        <div className="mb-6 rounded-xl border border-gold/30 bg-gold/5 px-5 py-4">
-          <p className="text-xs uppercase tracking-wider text-white/40">
-            Your code
-          </p>
-          <p className="font-display text-3xl tracking-wider text-gold">
-            {shareCode}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => copyShare("message")}
-            className="btn-primary py-3 text-xs"
-          >
-            <Share2 className="h-4 w-4" />
-            {shareCopied === "message" ? "Copied!" : "Copy invite message"}
-          </button>
-          <button
-            type="button"
-            onClick={() => copyShare("link")}
-            className="btn-secondary py-3 text-xs"
-          >
-            {shareCopied === "link" ? "Copied!" : "Copy link only"}
-          </button>
-        </div>
       </StaticCard>
 
       <StaticCard className="mb-8 p-6 md:p-8">
