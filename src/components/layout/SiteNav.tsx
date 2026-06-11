@@ -17,7 +17,7 @@ export function SiteNav() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-white/[0.08]"
+      className="border-b border-white/[0.08]"
       style={{
         background: "rgba(3,5,16,0.95)",
         backdropFilter: "blur(24px)",
