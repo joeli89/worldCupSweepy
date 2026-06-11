@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const posthogRegion = process.env.POSTHOG_REGION === "eu" ? "eu" : "us";
+const posthogRegion = process.env.POSTHOG_REGION === "us" ? "us" : "eu";
 
 const nextConfig: NextConfig = {
   images: {

@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+
+[[redirects]]
+  from = "/wc26-ph/static/*"
+  to = "https://eu-assets.i.posthog.com/static/:splat"
+  status = 200
+  force = true
+  headers = { Host = "eu-assets.i.posthog.com" }
+
+[[redirects]]
+  from = "/wc26-ph/array/*"
+  to = "https://eu-assets.i.posthog.com/array/:splat"
+  status = 200
+  force = true
+  headers = { Host = "eu-assets.i.posthog.com" }
+
+[[redirects]]
+  from = "/wc26-ph/*"
+  to = "https://eu.i.posthog.com/:splat"
+  status = 200
+  force = true
+  headers = { Host = "eu.i.posthog.com" }
