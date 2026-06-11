@@ -104,7 +104,7 @@ export function SetupPlayersContent() {
           Add Players
         </h1>
         <p className="mx-auto mt-4 max-w-lg text-lg text-white/55">
-          Enter names for everyone in your sweepstake.
+          Enter names for everyone in your World Cup Sweepy.
         </p>
       </div>
 

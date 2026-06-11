@@ -36,7 +36,7 @@ export function InviteFriendsBanner() {
         <div>
           <div className="mb-6 flex items-center gap-3">
             <Sparkles className="h-5 w-5 text-gold drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]" />
-            <span className="brand-eyebrow text-gold">Grow Your Sweepstake</span>
+            <span className="brand-eyebrow text-gold">Grow Your Sweepy</span>
           </div>
           <h2 className="font-display text-5xl uppercase leading-[0.88] tracking-wide text-white md:text-6xl">
             Invite Friends.

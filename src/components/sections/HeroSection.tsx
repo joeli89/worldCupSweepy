@@ -29,7 +29,7 @@ export function HeroSection() {
           <div className="flex flex-col justify-center">
             <span className="mb-4 inline-flex w-fit items-center rounded-full border border-gold/35 bg-gold/10 px-5 py-2 backdrop-blur-xl">
               <span className="brand-eyebrow text-sm text-gold">
-                FIFA World Cup · Live Sweepstake
+                FIFA World Cup · World Cup Sweepy
               </span>
             </span>
 
@@ -49,7 +49,7 @@ export function HeroSection() {
             </div>
 
             <p className="mb-8 max-w-lg text-lg font-light leading-relaxed text-white/75 md:text-xl">
-              The sweepstake that brings the world together.
+              World Cup Sweepy brings the world together.
             </p>
 
             <div className="hidden border-t border-white/[0.06] pt-8 lg:block">
@@ -73,7 +73,7 @@ export function HeroSection() {
             <div className="glass-card rounded-card border border-white/[0.1] p-6 md:p-8">
               <p className="brand-eyebrow mb-2 text-gold">Ready to play?</p>
               <h2 className="mb-2 font-display text-2xl uppercase tracking-wide text-white">
-                Join the sweepstake
+                Join World Cup Sweepy
               </h2>
               <p className="mb-6 text-sm leading-relaxed text-white/50">
                 Add your players, draw your countries, and follow the tournament

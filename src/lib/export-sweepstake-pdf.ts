@@ -34,7 +34,7 @@ export async function exportSweepstakePdf(
   doc.setTextColor(251, 191, 36);
   doc.setFontSize(10);
   doc.setFont("helvetica", "bold");
-  doc.text("FIFA WORLD CUP · SWEEPSTAKE", margin, 16);
+  doc.text("FIFA WORLD CUP · SWEEPY", margin, 16);
 
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(22);
@@ -86,12 +86,12 @@ export async function exportSweepstakePdf(
   doc.setFontSize(9);
   doc.setTextColor(140, 140, 140);
   doc.text(
-    "World Cup Sweepstake · Each country can only be drawn once",
+    "World Cup Sweepy · Each country can only be drawn once",
     margin,
     footerY
   );
 
-  doc.save("world-cup-sweepstake-2026.pdf");
+  doc.save("world-cup-sweepy-2026.pdf");
 }
 
 export function hasSweepstakeAssignments(players: SweepstakePlayer[]): boolean {

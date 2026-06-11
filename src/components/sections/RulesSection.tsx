@@ -10,7 +10,7 @@ const rules = [
   "Bonus points for clean sheets, penalty shootout wins, and reaching the final.",
   "The player with the most points at the end of the tournament wins the prize pool.",
   "All draws are transparent and verifiable — no duplicate teams allowed.",
-  "Minimum 8 players required to start; maximum 32 players per sweepstake.",
+  "Minimum 8 players required to start; maximum 32 players per World Cup Sweepy.",
 ];
 
 export function RulesSection() {

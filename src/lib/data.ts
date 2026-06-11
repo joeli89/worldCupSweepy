@@ -22,10 +22,10 @@ export const sweepstakeData = {
     { rank: 5, name: "You", team: "🇧🇷 Brazil", points: 124, change: "down" as const },
   ],
   recentActivity: [
-    { id: 1, type: "join" as const, user: "Sarah Chen", message: "joined the sweepstake", time: "2m ago" },
+    { id: 1, type: "join" as const, user: "Sarah Chen", message: "joined World Cup Sweepy", time: "2m ago" },
     { id: 2, type: "team" as const, user: "Mike Ross", message: "was assigned 🇪🇸 Spain", time: "15m ago" },
     { id: 3, type: "leaderboard" as const, user: "Emma Thompson", message: "moved to #2 on the leaderboard", time: "1h ago" },
-    { id: 4, type: "join" as const, user: "Alex Rivera", message: "joined the sweepstake", time: "2h ago" },
+    { id: 4, type: "join" as const, user: "Alex Rivera", message: "joined World Cup Sweepy", time: "2h ago" },
     { id: 5, type: "team" as const, user: "You", message: "were assigned 🇧🇷 Brazil", time: "3h ago" },
   ],
   worldCupFacts: [

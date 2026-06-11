@@ -3,8 +3,8 @@ import { PageShell } from "@/components/layout/PageShell";
 import { SetupPlayersContent } from "@/components/sections/SetupPlayersContent";
 
 export const metadata = {
-  title: "Get Started — World Cup Sweepstake 2026",
-  description: "Add players and enter names for your World Cup sweepstake.",
+  title: "Get Started — World Cup Sweepy 2026",
+  description: "Add players and enter names for your World Cup Sweepy.",
 };
 
 export default function GetStartedPage() {

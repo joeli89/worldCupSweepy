@@ -14,7 +14,7 @@ export function SweepstakeStatusCard() {
     <GlassCard id="sweepstake" delay={0.15} className="p-8 md:p-10">
       <CardHeader
         eyebrow="Pool Status"
-        title="Sweepstake"
+        title="Sweepy"
         icon={Users}
         iconVariant="purple"
       />

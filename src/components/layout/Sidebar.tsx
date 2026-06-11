@@ -79,7 +79,7 @@ export function Sidebar({ onNavigate }: SidebarProps) {
           <p className="font-condensed text-[10px] uppercase tracking-[0.25em] text-white/40">
             World Cup 2026
           </p>
-          <p className="font-display text-xl tracking-wide text-white">Sweepstake</p>
+          <p className="font-display text-xl tracking-wide text-white">World Cup Sweepy</p>
         </div>
       </button>
 

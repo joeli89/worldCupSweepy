@@ -29,7 +29,7 @@ export function SiteNav() {
             <Trophy className="h-5 w-5 text-white" />
           </div>
           <span className="hidden font-display text-lg tracking-wide text-white sm:inline">
-            World Cup Sweepstake
+            World Cup Sweepy
           </span>
         </Link>
 

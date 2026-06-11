@@ -6,9 +6,9 @@ import { Globe, Shuffle, Trophy, Users, X, Zap } from "lucide-react";
 const steps = [
   {
     icon: Users,
-    title: "Join the Sweepstake",
+    title: "Join World Cup Sweepy",
     description:
-      "Enter your invite code or create a new sweepstake with up to 32 friends and colleagues.",
+      "Enter your invite code or create a new World Cup Sweepy with up to 32 friends and colleagues.",
     color: "text-neon-blue bg-neon-blue/10 border-neon-blue/20",
   },
   {

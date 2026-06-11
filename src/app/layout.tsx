@@ -25,16 +25,16 @@ const bebasCondensed = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "World Cup Sweepstake 2026",
+  title: "World Cup Sweepy 2026",
   description:
-    "The premium World Cup sweepstake that brings the world together.",
+    "The premium World Cup Sweepy that brings the world together.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "World Cup Sweepstake 2026",
+    title: "World Cup Sweepy 2026",
     description:
-      "The premium World Cup sweepstake that brings the world together.",
+      "The premium World Cup Sweepy that brings the world together.",
     type: "website",
   },
 };

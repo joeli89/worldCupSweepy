@@ -15,7 +15,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 const steps = [
   {
     icon: Users,
-    title: "Join the sweepstake",
+    title: "Join World Cup Sweepy",
     description:
       "Get an invite code from the organiser, or start your own group with up to 32 players.",
     color: "icon-badge-blue text-neon-blue",
@@ -49,7 +49,7 @@ const rules = [
   "Bonus points for clean sheets, penalty shootout wins, and reaching the final.",
   "Highest total at the end of the tournament wins the prize pool.",
   "Draws are fair and transparent — no two players get the same team.",
-  "You need at least 8 players to start; maximum 32 per sweepstake.",
+  "You need at least 8 players to start; maximum 32 per World Cup Sweepy.",
 ];
 
 export function HowToPlayContent() {

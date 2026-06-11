@@ -282,7 +282,7 @@ export function AdvanceDrawContent() {
           </h2>
         </div>
         <p className="mb-4 text-sm text-white/40">
-          Send this code and link so someone else can open the same sweepstake
+          Send this code and link so someone else can open the same World Cup Sweepy
           on their device.
         </p>
         <div className="mb-6 rounded-xl border border-gold/30 bg-gold/5 px-5 py-4">
@@ -330,7 +330,7 @@ export function AdvanceDrawContent() {
             className="btn-secondary shrink-0 py-3 text-xs disabled:cursor-not-allowed disabled:opacity-40"
             title={
               canExportPdf
-                ? "Download your sweepstake results as a PDF"
+                ? "Download your World Cup Sweepy results as a PDF"
                 : "Draw at least one country to export"
             }
           >

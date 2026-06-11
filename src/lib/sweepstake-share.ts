@@ -51,7 +51,7 @@ export function buildShareMessage(players: SweepstakePlayer[]): string {
   const namedCount = players.filter((player) => player.name.trim()).length;
 
   return [
-    "Join my World Cup 2026 sweepstake!",
+    "Join my World Cup 2026 Sweepy!",
     "",
     `Code: ${code}`,
     namedCount > 0 ? `Players: ${namedCount}` : "",
