@@ -30,6 +30,7 @@ import {
   buildShareUrl,
   getDisplayCode,
 } from "@/lib/sweepstake-share";
+import { captureEvent } from "@/lib/posthog";
 import { cn } from "@/lib/utils";
 
 type SpinState = {
@@ -120,6 +121,11 @@ export function AdvanceDrawContent() {
     });
 
     setLastWinnerId(winner.id);
+    captureEvent("team_drawn", {
+      team_id: winner.id,
+      team_code: winner.code,
+      player_id: playerId,
+    });
     spinStateRef.current = null;
     setSpinState(null);
     onSpinDoneRef.current?.();
@@ -181,12 +187,17 @@ export function AdvanceDrawContent() {
 
   const handleSavePdf = async () => {
     await exportSweepstakePdf(players);
+    captureEvent("sweepstake_pdf_exported", {
+      player_count: players.length,
+      assigned_team_count: assignedTeamIds.length,
+    });
   };
 
   const copyShare = async (type: "link" | "message") => {
     const text =
       type === "link" ? buildShareUrl(players) : buildShareMessage(players);
     await navigator.clipboard.writeText(text);
+    captureEvent("sweepstake_shared", { share_type: type });
     setShareCopied(type);
     window.setTimeout(() => setShareCopied(null), 2000);
   };
@@ -411,7 +422,7 @@ export function AdvanceDrawContent() {
           All countries
         </h2>
         <p className="mb-6 text-sm text-white/40">
-          Countries already drawn are marked. Once all 48 are taken, no more
+          Countries already drawn are marked. Once all {allWorldCupTeams.length} are taken, no more
           draws are possible.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

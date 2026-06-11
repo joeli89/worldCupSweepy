@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
+import { heroStats } from "@/lib/world-cup-2026";
 
 export function HeroSection() {
   const headline = ["WORLD", "CUP", "2026"];
@@ -54,11 +55,7 @@ export function HeroSection() {
 
             <div className="hidden border-t border-white/[0.06] pt-8 lg:block">
               <div className="flex gap-12">
-                {[
-                  { value: "32", label: "Teams" },
-                  { value: "48", label: "Matches" },
-                  { value: "3", label: "Host Nations" },
-                ].map((stat) => (
+                {heroStats.map((stat) => (
                   <div key={stat.label}>
                     <p className="stat-value">{stat.value}</p>
                     <p className="stat-label">{stat.label}</p>
@@ -96,11 +93,7 @@ export function HeroSection() {
           {/* Stats — mobile only, full width below grid on small screens */}
           <div className="border-t border-white/[0.06] pt-8 lg:hidden">
             <div className="flex flex-wrap gap-10">
-              {[
-                { value: "32", label: "Teams" },
-                { value: "48", label: "Matches" },
-                { value: "3", label: "Host Nations" },
-              ].map((stat) => (
+              {heroStats.map((stat) => (
                 <div key={stat.label}>
                   <p className="stat-value">{stat.value}</p>
                   <p className="stat-label">{stat.label}</p>

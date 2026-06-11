@@ -5,7 +5,7 @@ export type DrawTeam = {
   code: string;
 };
 
-/** World Cup 2026 sweepstake pool — realistic demo teams */
+/** Legacy demo draw pool (subset of the 48-team World Cup 2026 field). */
 export const drawTeams: DrawTeam[] = [
   { id: "bra", name: "Brazil", flag: "🇧🇷", code: "BRA" },
   { id: "arg", name: "Argentina", flag: "🇦🇷", code: "ARG" },

@@ -2,13 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Shuffle, Trophy, Users, X, Zap } from "lucide-react";
+import { WORLD_CUP_2026 } from "@/lib/world-cup-2026";
 
 const steps = [
   {
     icon: Users,
     title: "Join World Cup Sweepy",
     description:
-      "Enter your invite code or create a new World Cup Sweepy with up to 32 friends and colleagues.",
+      `Enter your invite code or create a new World Cup Sweepy with up to ${WORLD_CUP_2026.maxSweepstakePlayers} friends and colleagues.`,
     color: "text-neon-blue bg-neon-blue/10 border-neon-blue/20",
   },
   {

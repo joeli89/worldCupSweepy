@@ -1,3 +1,5 @@
+import { WORLD_CUP_2026 } from "@/lib/world-cup-2026";
+
 export type FamousPlayer = {
   name: string;
   country: string;
@@ -24,4 +26,4 @@ export const famousPlayers: FamousPlayer[] = [
 ];
 
 export const MIN_PLAYERS = 2;
-export const MAX_PLAYERS = 32;
+export const MAX_PLAYERS = WORLD_CUP_2026.maxSweepstakePlayers;

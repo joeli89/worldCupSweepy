@@ -3,14 +3,15 @@
 import { motion } from "framer-motion";
 import { BookOpen, CheckCircle2 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { WORLD_CUP_2026 } from "@/lib/world-cup-2026";
 
 const rules = [
-  "Each player is randomly assigned one of the 32 World Cup teams at the draw.",
+  `Each player is randomly assigned one of the ${WORLD_CUP_2026.teamCount} World Cup teams at the draw.`,
   "Points are awarded for match wins, goals scored, and knockout stage progression.",
   "Bonus points for clean sheets, penalty shootout wins, and reaching the final.",
   "The player with the most points at the end of the tournament wins the prize pool.",
   "All draws are transparent and verifiable — no duplicate teams allowed.",
-  "Minimum 8 players required to start; maximum 32 players per World Cup Sweepy.",
+  `Minimum ${WORLD_CUP_2026.minSweepstakePlayers} players required to start; maximum ${WORLD_CUP_2026.maxSweepstakePlayers} players per World Cup Sweepy.`,
 ];
 
 export function RulesSection() {

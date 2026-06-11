@@ -1,7 +1,9 @@
+import { WORLD_CUP_2026 } from "@/lib/world-cup-2026";
+
 export const sweepstakeData = {
   inviteCode: "WC26-X7K9",
   playersJoined: 18,
-  maxPlayers: 32,
+  maxPlayers: WORLD_CUP_2026.maxSweepstakePlayers,
   userTeam: {
     name: "Brazil",
     flag: "🇧🇷",
@@ -9,10 +11,10 @@ export const sweepstakeData = {
   },
   nextMatch: {
     home: { name: "Brazil", flag: "🇧🇷", code: "BRA" },
-    away: { name: "Argentina", flag: "🇦🇷", code: "ARG" },
-    date: "Jun 15, 2026",
-    time: "20:00 GMT",
-    venue: "MetLife Stadium, New Jersey",
+    away: { name: "Morocco", flag: "🇲🇦", code: "MAR" },
+    date: "Jun 13, 2026",
+    time: "6:00 PM ET",
+    venue: "MetLife Stadium, East Rutherford, NJ",
   },
   leaderboard: [
     { rank: 1, name: "Marcus Silva", team: "🇧🇷 Brazil", points: 142, change: "up" as const },
@@ -29,10 +31,14 @@ export const sweepstakeData = {
     { id: 5, type: "team" as const, user: "You", message: "were assigned 🇧🇷 Brazil", time: "3h ago" },
   ],
   worldCupFacts: [
-    { label: "Total Tournaments", value: "22", icon: "trophy" },
-    { label: "Most Wins", value: "Brazil (5)", icon: "medal" },
-    { label: "Total Goals Scored", value: "2,720+", icon: "goal" },
-    { label: "Host Nation 2026", value: "USA · CAN · MEX", icon: "globe" },
+    { label: "Teams", value: String(WORLD_CUP_2026.teamCount), icon: "globe" },
+    { label: "Matches", value: String(WORLD_CUP_2026.matchCount), icon: "goal" },
+    { label: "Groups", value: String(WORLD_CUP_2026.groupCount), icon: "medal" },
+    {
+      label: "Tournament",
+      value: "Jun 11 – Jul 19",
+      icon: "trophy",
+    },
   ],
   drawCompleted: false,
   drawnTeam: "Brazil",

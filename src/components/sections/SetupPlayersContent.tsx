@@ -7,6 +7,7 @@ import { StaticCard } from "@/components/ui/StaticCard";
 import { MAX_PLAYERS, MIN_PLAYERS } from "@/lib/famous-players";
 import { loadPlayers, savePlayers } from "@/lib/sweepstake-storage";
 import { decodeSweepstakeShare } from "@/lib/sweepstake-share";
+import { captureEvent } from "@/lib/posthog";
 
 type Player = {
   id: string;
@@ -189,7 +190,13 @@ export function SetupPlayersContent() {
       <div className="flex justify-center">
         <button
           type="button"
-          onClick={() => router.push("/advance")}
+          onClick={() => {
+            captureEvent("players_setup_completed", {
+              player_count: players.length,
+              named_player_count: filledCount,
+            });
+            router.push("/advance");
+          }}
           className="btn-primary inline-flex"
         >
           Advance

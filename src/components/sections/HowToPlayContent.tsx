@@ -11,20 +11,21 @@ import {
   Zap,
 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { WORLD_CUP_2026 } from "@/lib/world-cup-2026";
 
 const steps = [
   {
     icon: Users,
     title: "Join World Cup Sweepy",
     description:
-      "Get an invite code from the organiser, or start your own group with up to 32 players.",
+      `Get an invite code from the organiser, or start your own group with up to ${WORLD_CUP_2026.maxSweepstakePlayers} players.`,
     color: "icon-badge-blue text-neon-blue",
   },
   {
     icon: Shuffle,
     title: "Team draw",
     description:
-      "When the group is full, every player is randomly assigned one World Cup team. No duplicates.",
+      `When the group is full, every player is randomly assigned one of ${WORLD_CUP_2026.teamCount} World Cup teams. No duplicates.`,
     color: "icon-badge-purple text-neon-purple",
   },
   {
@@ -44,12 +45,12 @@ const steps = [
 ];
 
 const rules = [
-  "Each player gets one of the 32 World Cup teams — assigned randomly at the draw.",
+  `Each player gets one of the ${WORLD_CUP_2026.teamCount} World Cup teams — assigned randomly at the draw.`,
   "Points for match wins, goals scored, and knockout progress.",
   "Bonus points for clean sheets, penalty shootout wins, and reaching the final.",
   "Highest total at the end of the tournament wins the prize pool.",
   "Draws are fair and transparent — no two players get the same team.",
-  "You need at least 8 players to start; maximum 32 per World Cup Sweepy.",
+  `You need at least ${WORLD_CUP_2026.minSweepstakePlayers} players to start; maximum ${WORLD_CUP_2026.maxSweepstakePlayers} per World Cup Sweepy.`,
 ];
 
 export function HowToPlayContent() {
